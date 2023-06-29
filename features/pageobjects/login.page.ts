@@ -30,17 +30,13 @@ class LoginPage extends Page {
     }
 
     public async login(username: string, password: string) {
-        await this.menu.waitForDisplayed();
-        await this.menu.click();
-        await this.loginOption.waitForDisplayed();
-        await this.loginOption.click();
-        await this.inputUsername.waitForDisplayed();
-        await this.inputUsername.clearValue();
-        await this.inputUsername.addValue(username);
-        await this.inputPassword.waitForDisplayed();
-        await this.inputPassword.clearValue();
-        await this.inputPassword.addValue(password);
-        await this.btnSubmit.click();
+        await (await this.menu).click();
+        await (await this.loginOption).click();
+        await (await this.inputUsername).clearValue();
+        await (await this.inputUsername).addValue(username);
+        await (await this.inputPassword).clearValue();
+        await (await this.inputPassword).addValue(password);
+        await (await this.btnSubmit).click();
     }
 
     /**
